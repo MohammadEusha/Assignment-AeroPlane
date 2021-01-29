@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--Header and Menu Section-->
+    <header class="container">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a class="active" href="#">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Booking Section-->
+    <section class="main-content container">
+        <div id="login-area" class="booking-form">
+            <h3>Booking Flights</h3>
+            <div class="input-group">
+                <label for="">Flying From</label>
+                <input class="inp-style" type="text" name="" placeholder="Dhaka, Bangladesh">
+            </div>
+            <div class="input-group">
+                <label for="">Flying To</label>
+                <input class="inp-style" type="text" name="" placeholder="New York, United States">
+            </div>
+            <div class="inputs">
+                <div class="input-group">
+                    <label" for="">Departure</label>
+                        <input class="inp-style" type="date" name="">
+                </div>
+                <div class="input-group">
+                    <label for="">Return</label>
+                    <input class="inp-style" type="date" name="">
+                </div>
+            </div>
+            <div class="input-group f-class">
+                <div>
+                    <label for="">First Class ($150)</label>
+                    <input id="ticketFirstClass-count" class="inp-style inp-width" type="number" value="0" name="">
+                </div>
+                <div class="plus-minus-btn">
+                    <p> <span onclick="handleTicketChange('ticketFirstClass', true)">+</span> <span
+                      onclick="handleTicketChange('ticketFirstClass', false)">-</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="input-group f-class">
+                <div>
+                    <label for="">Economy ($100)</label>
+                    <input id="ticketEconomyClass-count" class="inp-style inp-width" type="number" value="0" name="">
+                </div>
+                <div class="plus-minus-btn">
+                    <p> <span onclick="handleTicketChange('ticketEconomyClass', true)">+</span> <span
+                        onclick="handleTicketChange('ticketEconomyClass', false)">-</span> 
+                    </p>
+                </div>
+            </div>
+            <div class="calculations">
+                <div class="amount">
+                    <div class="left">
+                        <p>Subtotal</p>
+                    </div>
+                    <div class="right">
+                        <p id="total-price">$500</p>
+                    </div>
+                </div>
+
+                <div class="amount">
+                    <div class="left">
+                        <p>Charge 10% VAT</p>
+                    </div>
+                    <div class="right">
+                        <p id="vat">$50</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="amount">
+                    <div class="left">
+                        <h4>Total</h4>
+                    </div>
+                    <div class="right">
+                        <p id="total">$550</p>
+                    </div>
+                </div>
+            </div>
+            <button id="login" class="btn-style">Book Now</button>
+        </div>
+
+        <div id="transaction-area">
+            <h1>CONGRATULATION</h1>
+            <h3>Your Ticket Has Been Purchased</h3>
+            <h4 id="boss"></h4>
+        </div>
+
+        <div class="booking-content">
+            <h1>discover <br> around the world</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias
+                veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise
+                voluptatibus quam</p>
+        </div>
+        </section>
+
+        <script>
+
+
+            // Ticket Price Count:-
+            function handleTicketChange(ticket, increase) {
+                var ticketInput = document.getElementById(ticket + '-count');
+                var ticketCount = parseInt(ticketInput.value);
+                var ticketNewCount = ticketCount;
+                if (increase == true) {
+                    var ticketNewCount = ticketCount + 1;
+                }
+                if (increase == false && ticketCount > 0) {
+                    var ticketNewCount = ticketCount - 1;
+                }
+                ticketInput.value = ticketNewCount;
+                if (ticket == 'ticketFirstClass') {
+                    var ticketPrice = ticketNewCount * 150;
+                }
+                if (ticket == 'ticketEconomyClass') {
+                    var ticketPrice = ticketNewCount * 100;
+                }
+
+
+                calculatePrice();
+            }
+
+
+            // All Price Count:-
+            function calculatePrice() {
+                var ticketFirstClassInput = document.getElementById('ticketFirstClass-count');
+                var ticketFirstClassCount = parseInt(ticketFirstClassInput.value);
+
+                var ticketEconomyClassInput = document.getElementById('ticketEconomyClass-count');
+                var ticketEconomyClassCount = parseInt(ticketEconomyClassInput.value);
+
+                var totalPrice = ticketFirstClassCount * 150 + ticketEconomyClassCount * 100;
+                document.getElementById('total-price').innerText = '$' + totalPrice;
+
+                var vat = totalPrice * 0.1;
+                document.getElementById('vat').innerText = Math.round(vat);
+
+                var total = vat + totalPrice;
+                document.getElementById('total').innerText = Math.round(total);
+
+                document.getElementById('boss').innerText ='total Cost ' + ':- ' +'$ ' + total;
+            }
+
+
+            //  Login Button:-
+            var loginBtn = document.getElementById('login');
+                loginBtn.addEventListener('click', function(){
+                var loginArea = document.getElementById('login-area');
+                loginArea.style.display = 'none';
+                var transactionArea = document.getElementById('transaction-area');
+                transactionArea.style.display = 'block';
+                
+            })
+
+
+        </script>
+</body>
+
+</html>
