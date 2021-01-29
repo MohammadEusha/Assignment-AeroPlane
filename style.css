@@ -103,6 +103,14 @@ nav ul li a:hover, a.active{
     border-radius: 5px;
     float: left;
     text-align: center;
+    transition-property: all;
+    transition-duration: 1s ;
+
+}
+#transaction-area:hover{
+    transform: rotate(360deg);
+    background-color:gray;
+    color: white;
 }
 .booking-content{
     color: #fff;
