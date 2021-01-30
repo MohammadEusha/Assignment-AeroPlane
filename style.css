@@ -50,6 +50,7 @@ nav ul li a:hover, a.active{
     padding: 25px;
     border-radius: 5px;
     float: left;
+
 }
 .booking-form h3{
     margin: 10px 0px;
@@ -97,21 +98,20 @@ nav ul li a:hover, a.active{
 }
 #transaction-area{
     display: none;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    color: whitesmoke;
+    background-color:gray;
+    border: 1px solid gray;
     margin: 20px;
     padding: 25px;
     border-radius: 5px;
-    float: left;
     text-align: center;
     transition-property: all;
     transition-duration: 1s ;
 
 }
 #transaction-area:hover{
-    transform: rotate(360deg);
-    background-color:gray;
-    color: white;
+    background-color:whitesmoke;
+    color:black;
 }
 .booking-content{
     color: #fff;

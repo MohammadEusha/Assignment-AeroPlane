@@ -40,8 +40,8 @@
             </div>
             <div class="inputs">
                 <div class="input-group">
-                    <label" for="">Departure</label>
-                        <input class="inp-style" type="date" name="">
+                   <label" for="">Departure</label>
+                   <input class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
                     <label for="">Return</label>
@@ -54,8 +54,8 @@
                     <input id="ticketFirstClass-count" class="inp-style inp-width" type="number" value="0" name="">
                 </div>
                 <div class="plus-minus-btn">
-                    <p> <span onclick="handleTicketChange('ticketFirstClass', true)">+</span> <span
-                      onclick="handleTicketChange('ticketFirstClass', false)">-</span>
+                    <p> <span onclick="handleTicketChange   ('ticketFirstClass', true)">+</span> <span
+                      onclick="handleTicketChange('ticketFirstClass', false)">-</span> 
                     </p>
                 </div>
             </div>
@@ -99,11 +99,12 @@
                     </div>
                 </div>
             </div>
-            <button id="booking" class="btn-style">Book Now</button>
+            <button id="booking" onclick="alert('Are You Sure You Want To Purchase Your Ticket?')" class="btn-style">Book Now</button>
         </div>
 
         <div id="transaction-area">
             <h1>CONGRATULATION</h1>
+            <br>
             <h3>Your Ticket Has Been Purchased</h3>
             <h4 id="transaction"></h4>
         </div>
@@ -114,7 +115,7 @@
                 veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise
                 voluptatibus quam</p>
         </div>
-        </section>
+    </section>
 
         <script>
 
@@ -139,12 +140,12 @@
                 }
 
 
-                calculatePrice();
+                calculateTicketPrice();
             }
 
 
             // Total Price Count:-
-            function calculatePrice() {
+            function calculateTicketPrice() {
                 var ticketFirstClassInput = document.getElementById('ticketFirstClass-count');
                 var ticketFirstClassCount = parseInt(ticketFirstClassInput.value);
 
@@ -160,7 +161,7 @@
                 var total = vat + totalPrice;
                 document.getElementById('total').innerText = Math.round(total);
 
-                document.getElementById('transaction').innerText ='total Cost ' + ':- ' +'$ ' + total;
+                document.getElementById('transaction').innerText ='total Cost ' + ':- ' +' ' +'$ ' + total  
             }
 
 
