@@ -98,20 +98,19 @@ nav ul li a:hover, a.active{
 }
 #transaction-area{
     display: none;
-    color: whitesmoke;
-    background-color:gray;
+    color: black;
+    background-color:whitesmoke;
     border: 1px solid gray;
     margin: 20px;
     padding: 25px;
     border-radius: 5px;
     text-align: center;
-    transition-property: all;
+    transition-property: transform;
     transition-duration: 1s ;
 
 }
 #transaction-area:hover{
-    background-color:whitesmoke;
-    color:black;
+    transform: rotate(360deg);
 }
 .booking-content{
     color: #fff;
