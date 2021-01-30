@@ -28,7 +28,7 @@
 
     <!--Booking Section-->
     <section class="main-content container">
-        <div id="login-area" class="booking-form">
+        <div id="booking-area" class="booking-form">
             <h3>Booking Flights</h3>
             <div class="input-group">
                 <label for="">Flying From</label>
@@ -77,7 +77,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p id="total-price">$500</p>
+                        <p id="total-price">$0</p>
                     </div>
                 </div>
 
@@ -86,7 +86,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p id="vat">$50</p>
+                        <p id="vat">$0</p>
                     </div>
                 </div>
                 <hr>
@@ -95,17 +95,17 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p id="total">$550</p>
+                        <p id="total">$0</p>
                     </div>
                 </div>
             </div>
-            <button id="login" class="btn-style">Book Now</button>
+            <button id="booking" class="btn-style">Book Now</button>
         </div>
 
         <div id="transaction-area">
             <h1>CONGRATULATION</h1>
             <h3>Your Ticket Has Been Purchased</h3>
-            <h4 id="boss"></h4>
+            <h4 id="transaction"></h4>
         </div>
 
         <div class="booking-content">
@@ -143,7 +143,7 @@
             }
 
 
-            // All Price Count:-
+            // Total Price Count:-
             function calculatePrice() {
                 var ticketFirstClassInput = document.getElementById('ticketFirstClass-count');
                 var ticketFirstClassCount = parseInt(ticketFirstClassInput.value);
@@ -160,15 +160,14 @@
                 var total = vat + totalPrice;
                 document.getElementById('total').innerText = Math.round(total);
 
-                document.getElementById('boss').innerText ='total Cost ' + ':- ' +'$ ' + total;
+                document.getElementById('transaction').innerText ='total Cost ' + ':- ' +'$ ' + total;
             }
 
 
-            //  Login Button:-
-            var loginBtn = document.getElementById('login');
-                loginBtn.addEventListener('click', function(){
-                var loginArea = document.getElementById('login-area');
-                loginArea.style.display = 'none';
+            //  booking Button:-
+            document.getElementById('booking').addEventListener('click', function(){
+                var bookingArea = document.getElementById('booking-area');
+                bookingArea.style.display = 'none';
                 var transactionArea = document.getElementById('transaction-area');
                 transactionArea.style.display = 'block';
                 
